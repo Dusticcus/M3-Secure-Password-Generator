@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
 
-    <!-- The Modal -->
-<div id="myModal" class="modal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form>
-      <label for="passwordCharacters">8 - 128 characters</label>
-      <input type="number" id="passwordCharacters" name="chars"><br><br>
+<body>
 
-      <label for="passwordLowercase">Lowercase Characters?</label>
-      <input type="checkbox" id="passwordLowercase" name="lowercase"><br><br>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
 
-      <label for="passwordUppercase">Uppercase Characters?</label>
-      <input type="checkbox" id="passwordUppercase" name="uppercase"><br><br>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Select password criteria:</h2>
+      <form>
+        <label for="passwordCharacters">8 - 128 characters</label>
+        <input type="number" id="passwordCharacters" name="chars" placeholder="8 - 128"><br><br>
 
-      <label for="passwordNumerical">Numbers?</label>
-      <input type="checkbox" id="passwordNumerical" name="numbers"><br><br>
+        <label for="passwordLowercase">Lowercase Characters?</label>
+        <input type="checkbox" id="passwordLowercase" name="lowercase"><br><br>
 
-      <label for="passwordSpecial">Special Characters?</label>
-      <input type="checkbox" id="passwordSpecial" name="special"><br><br>
+        <label for="passwordUppercase">Uppercase Characters?</label>
+        <input type="checkbox" id="passwordUppercase" name="uppercase"><br><br>
 
-      <button type="submit" id="passwordForm" form="form1" value="Submit">Submit</button>
-    </form> 
+        <label for="passwordNumerical">Numbers?</label>
+        <input type="checkbox" id="passwordNumerical" name="numbers"><br><br>
+
+        <label for="passwordSpecial">Special Characters?</label>
+        <input type="checkbox" id="passwordSpecial" name="special"><br><br>
+
+        <button type="submit" id="passwordForm" form="form1" value="Submit">Submit</button>
+      </form>
+    </div>
+
   </div>
-
-</div>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <h2>Generate a Password</h2>
+      </div>
+      <div class="card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
       </div>
     </div>
-    <script src="./assets/script.js"></script>
-  </body>
+  </div>
+  <script src="./assets/script.js"></script>
+</body>
+
 </html>

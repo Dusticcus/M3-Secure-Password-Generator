@@ -1,53 +1,62 @@
-
-
-// // Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", generatePassword);
-
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("generate");
 
+// Get the submit button within the form that opened
 var submitBtn = document.getElementById("passwordForm");
+// submitBtn.style.display = "none";
+submitBtn.disabled = true;
 
+// Store other form values
+var passLowercase = document.getElementById("passwordLowercase");
+var passUppercase = document.getElementById("passwordUppercase");
+var passNumerical = document.getElementById("passwordNumerical");
+var passSpecial = document.getElementById("passwordSpecial");
+
+// When the user clicks anywhere in the modal check if checkboxes are checked
+modal.onclick = function () {
+
+
+  if (passLowercase.checked || passUppercase.checked || passNumerical.checked || passSpecial.checked) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+}
+
+// Generate the password after submit is clicked
 submitBtn.onclick = function () {
+  var passwordText = document.querySelector("#password");
 
+  modal.style.display = "none";
+  document.getElementById("passwordCharacters").style.backgroundColor = "white";
+
+  // Store user chosen password length VALUE from form
   var passLength = document.getElementById("passwordCharacters").value;
 
-  // if (passLength > 128 || passLength < 8) {
-  //   alert("Use a number between 8 and 128.");
-  // }
+  if (passLength > 128 || passLength < 8) {
+  alert("Use a number between 8 and 128.");
+  modal.style.display = "block";
+  document.getElementById("passwordCharacters").style.backgroundColor = "red";
+  passwordText.value = '';
+  return;
+   }
 
-  var passLowercase = document.getElementById("passwordLowercase");
-  var passUppercase = document.getElementById("passwordUppercase");
-  var passNumerical = document.getElementById("passwordNumerical");
-  var passSpecial = document.getElementById("passwordSpecial");
 
-  // if (passLength > 128 || passLength < 8) {
-  //   alert("Use a number between 8 and 128.");
-  // }
+
+
+  // Possible password characters as arrays
   var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numericalArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "="];
 
-
+  // The array that will store the full scope of user chosen characters for the password
   var super_array = [];
 
+  // If the form option is checked, push the corresponding character array to the SUPER ARRAY
   if (passLowercase.checked) {
     for (i = 0; i < lowercaseArray.length; i++) {
       super_array.push(lowercaseArray[i].concat());
@@ -75,16 +84,19 @@ submitBtn.onclick = function () {
 
   console.log(super_array);
 
+  // The array where the new password will be stored
   var newPassword = [];
 
+  // Creates the new password by looping through the SUPER ARRAY randomly
   for (let i = 0; i < passLength; i++) {
     var random = Math.floor(Math.random() * super_array.length);
     console.log(random);
     newPassword.push(super_array[random]);
   }
   console.log(newPassword);
-  var passwordText = document.querySelector("#password");
+  
 
+  // Writes the new password to the DOM
   passwordText.value = newPassword.join('');
 }
 
@@ -106,10 +118,4 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
-// Assignment code here
-function generatePassword() {
-  alert(passLength);
-
 }
