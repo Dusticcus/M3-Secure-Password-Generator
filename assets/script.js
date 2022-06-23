@@ -7,6 +7,8 @@ var btn = document.getElementById("generate");
 // Get the submit button within the form that opened
 var submitBtn = document.getElementById("passwordForm");
 // submitBtn.style.display = "none";
+
+// Disable the submit form button until at least 1 option is checked
 submitBtn.disabled = true;
 
 // Store other form values
@@ -28,24 +30,26 @@ modal.onclick = function () {
 
 // Generate the password after submit is clicked
 submitBtn.onclick = function () {
+  // Get password DOM area so we can clear it if user provides bad input in character number selection
   var passwordText = document.querySelector("#password");
 
+  // Remove the modal so user can see new password
   modal.style.display = "none";
+  // Reset input background in case it was turned red by previous bad user input
   document.getElementById("passwordCharacters").style.backgroundColor = "white";
 
   // Store user chosen password length VALUE from form
   var passLength = document.getElementById("passwordCharacters").value;
 
+  //Validate password length is between 8 - 128 characters
+  // If not, alert the user, change number input background to red, clear the password section of the DOM, and keep MODAL up
   if (passLength > 128 || passLength < 8) {
-  alert("Use a number between 8 and 128.");
+  // alert("Use a number between 8 and 128.");
   modal.style.display = "block";
-  document.getElementById("passwordCharacters").style.backgroundColor = "red";
+  document.getElementById("passwordCharacters").style.boxShadow = "0 0 40px 20px red";
   passwordText.value = '';
   return;
    }
-
-
-
 
   // Possible password characters as arrays
   var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -61,7 +65,6 @@ submitBtn.onclick = function () {
     for (i = 0; i < lowercaseArray.length; i++) {
       super_array.push(lowercaseArray[i].concat());
     }
-
   }
 
   if (passUppercase.checked) {
@@ -99,6 +102,9 @@ submitBtn.onclick = function () {
   // Writes the new password to the DOM
   passwordText.value = newPassword.join('');
 }
+
+
+// ------------------------ All MODAL stuff below here ---------------------------
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
