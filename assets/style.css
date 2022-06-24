@@ -184,7 +184,7 @@ button[disabled] {
 .modal-content h2 {
   text-align: center;
   font-size: 2.5vw;
-  border-bottom: .5vw solid black;
+  border-bottom: .25vw solid #af0808;
 }
 
 /* The Close Button */
@@ -192,7 +192,8 @@ button[disabled] {
   position: absolute;
   top: 0;
   right: 0;
-  color: #aaa;
+  padding: 1vw;
+  color: #af0808;
   /* float: right; */
   font-size: 28px;
   font-weight: bold;

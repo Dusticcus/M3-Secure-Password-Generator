@@ -30,11 +30,13 @@ modal.onclick = function () {
 
 // Generate the password after submit is clicked
 submitBtn.onclick = function () {
+
   // Get password DOM area so we can clear it if user provides bad input in character number selection
   var passwordText = document.querySelector("#password");
 
   // Remove the modal so user can see new password
   modal.style.display = "none";
+
   // Reset input background in case it was turned red by previous bad user input
   document.getElementById("passwordCharacters").style.backgroundColor = "white";
 
@@ -107,6 +109,7 @@ submitBtn.onclick = function () {
 
 
 // ------------------------ All MODAL stuff below here ---------------------------
+// ------------------------------Modal from w3 schools website------------------------
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
