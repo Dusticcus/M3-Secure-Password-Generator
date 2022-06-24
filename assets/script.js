@@ -49,6 +49,8 @@ submitBtn.onclick = function () {
   document.getElementById("passwordCharacters").style.boxShadow = "0 0 40px 20px red";
   passwordText.value = '';
   return;
+   } else {
+    document.getElementById("passwordCharacters").style.boxShadow = "";
    }
 
   // Possible password characters as arrays
