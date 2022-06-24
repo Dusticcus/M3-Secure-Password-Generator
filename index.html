@@ -19,20 +19,32 @@
       <span class="close">&times;</span>
       <h2>Password Options</h2>
       <form>
-        <label for="passwordCharacters">Pass Length</label>
-        <input type="number" id="passwordCharacters" name="chars" placeholder="8-128"><br><br>
+        <ul>
+          <li>
+            <label for="passwordCharacters">Pass Length</label>
+            <input type="number" id="passwordCharacters" name="chars" placeholder="8-128">
+          </li>
 
-        <label for="passwordLowercase">Lowercase Characters</label>
-        <input type="checkbox" id="passwordLowercase" name="lowercase"><br><br>
+          <li>
+            <label for="passwordLowercase">Lowercase Characters</label>
+            <input type="checkbox" id="passwordLowercase" name="lowercase">
+          </li>
 
-        <label for="passwordUppercase">Uppercase Characters</label>
-        <input type="checkbox" id="passwordUppercase" name="uppercase"><br><br>
+          <li>
+            <label for="passwordUppercase">Uppercase Characters</label>
+            <input type="checkbox" id="passwordUppercase" name="uppercase">
+          </li>
 
-        <label for="passwordNumerical">Numbers</label>
-        <input type="checkbox" id="passwordNumerical" name="numbers"><br><br>
+          <li>
+            <label for="passwordNumerical">Numbers</label>
+            <input type="checkbox" id="passwordNumerical" name="numbers">
+          </li>
 
-        <label for="passwordSpecial">Special Characters</label>
-        <input type="checkbox" id="passwordSpecial" name="special"><br><br>
+          <li>
+            <label for="passwordSpecial">Special Characters</label>
+            <input type="checkbox" id="passwordSpecial" name="special">
+          </li>
+        </ul>
 
         <button type="submit" id="passwordForm" form="form1" value="Submit">Submit</button>
       </form>
