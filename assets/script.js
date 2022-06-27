@@ -46,7 +46,8 @@ submitBtn.onclick = function () {
   //Validate password length is between 8 - 128 characters
   // If not, alert the user, change number input background to red, clear the password section of the DOM, and keep MODAL up
   if (passLength > 128 || passLength < 8) {
-  // alert("Use a number between 8 and 128.");
+  
+    // alert("Use a number between 8 and 128.");
   modal.style.display = "block";
   document.getElementById("passwordCharacters").style.boxShadow = "0 0 40px 20px red";
   passwordText.value = '';
